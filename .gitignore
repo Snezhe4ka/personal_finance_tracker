@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+# Virtual Environment
+venv/
+env/
+ENV/
+# VS Code settings
+.vscode/
+# PyCharm settings
+.idea/
+# MacOS Files
+.DS_Store
+# Environment Variables and Credentials
+.env
+*.env
+# Python package files
+*.egg
+*.egg-info/
+dist/
+build/
+*.dist-info/
+# Logs and database files
+*.log
+*.sqlite3
+*.db
+*.sqlite
+# Static files and uploads (optional)
+staticfiles/
+media/
+# Flask and FastAPI
+instance/
+.flaskenv
+# Coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+.nox/
+*.cover
+.hypothesis/
+# Jupyter Notebook
+.ipynb_checkpoints
+# MyPy
+.mypy_cache/
+# Pytest cache
+.pytest_cache/
+.cache/
+# Docker
+*.env.docker
+Dockerfile
+docker-compose.yml
+# PyInstaller
+*.spec
+# Ignore IDE and Editor specific files
+*.swp
+*~
+
