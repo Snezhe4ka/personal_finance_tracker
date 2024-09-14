@@ -3,7 +3,6 @@ from app import models, schemas
 from app.core.security import get_password_hash, verify_password
 from datetime import date
 
-# User-related CRUD operations
 
 def get_user(db: Session, user_id: int):
     return db.query(models.User).filter(models.User.id == user_id).first()
@@ -19,7 +18,6 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.refresh(db_user)
     return db_user
 
-# Transaction-related CRUD operations
 
 def create_transaction(db: Session, transaction: schemas.TransactionCreate, user_id: int):
     db_transaction = models.Transaction(**transaction.dict(), user_id=user_id)
@@ -50,7 +48,6 @@ def delete_transaction(db: Session, transaction_id: int):
         db.commit()
     return db_transaction
 
-# Category-related CRUD operations
 
 def create_category(db: Session, category: schemas.CategoryCreate):
     db_category = models.Category(**category.dict())
@@ -62,7 +59,6 @@ def create_category(db: Session, category: schemas.CategoryCreate):
 def get_categories(db: Session, skip: int = 0, limit: int = 10):
     return db.query(models.Category).offset(skip).limit(limit).all()
 
-# Budget-related CRUD operations
 
 def create_budget(db: Session, budget: schemas.BudgetCreate):
     db_budget = models.Budget(**budget.dict())
@@ -77,7 +73,6 @@ def get_budgets(db: Session, skip: int = 0, limit: int = 10):
 def get_budget_by_category(db: Session, category_name: str):
     return db.query(models.Budget).filter(models.Budget.category == category_name).first()
 
-# Report-related CRUD operations
 
 def generate_summary_report(db: Session):
     total_income = db.query(models.Transaction).filter(models.Transaction.amount > 0).sum(models.Transaction.amount)

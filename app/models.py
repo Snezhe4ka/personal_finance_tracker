@@ -9,7 +9,6 @@ class User(Base):
     username = Column(String, unique=True, index=True)
     hashed_password = Column(String, nullable=False)
 
-    # Relationships to link categories and budgets to the user
     transactions = relationship("Transaction", back_populates="user")
     categories = relationship("Category", back_populates="user")
     budgets = relationship("Budget", back_populates="user")
@@ -33,9 +32,8 @@ class Category(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, nullable=False)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)  # ForeignKey to link to User
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
 
-    # Relationship to link category to a user
     user = relationship("User", back_populates="categories")
 
 
@@ -49,6 +47,5 @@ class Budget(Base):
     amount = Column(Float, nullable=False)
     period = Column(String, nullable=False)
 
-    # Relationships to link budget to category and user
-    category = relationship("Category")  # Link budget to a category
+    category = relationship("Category")
     user = relationship("User", back_populates="budgets")

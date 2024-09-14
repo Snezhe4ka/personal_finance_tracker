@@ -14,7 +14,6 @@ class User(BaseModel):
     class Config:
         orm_mode = True
 
-# Transaction Schemas
 class TransactionCreate(BaseModel):
     amount: float
     date: date
@@ -32,7 +31,6 @@ class Transaction(BaseModel):
     class Config:
         orm_mode = True
 
-# Category Schemas
 class CategoryCreate(BaseModel):
     name: str
 
@@ -43,7 +41,6 @@ class Category(BaseModel):
     class Config:
         orm_mode = True
 
-# Budget Schemas
 class BudgetCreate(BaseModel):
     category: str
     amount: float
